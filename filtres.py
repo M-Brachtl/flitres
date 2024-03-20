@@ -1,10 +1,5 @@
 from PIL import Image
 
-print("Vítej.")
-print("Jaký soubor chceš editovat?")
-image_file = input("-> ")
-chosen_function = input("Vyber filtr: ")
-
 def pinkify(obrazek):
     sirka, vyska = obrazek.size
 
@@ -32,4 +27,21 @@ def black_white(obrazek):
             y += 1
         x += 1
     display(obrazek)
+
+filters = {
+    "pinkify": pinkify,
+    "black-white": black_white
+}
+
+
+print("Vítej.")
+print("Jaký soubor chceš editovat?")
+image_file = input("-> ")
+chosen_function = ""
+while not chosen_function in filters.keys():
+    chosen_function = input("Vyber filtr: ")
+
+filters[chosen_function](image_file)
+
+
 
