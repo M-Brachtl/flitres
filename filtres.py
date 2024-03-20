@@ -1,6 +1,7 @@
 from PIL import Image
 
-def pinkify(obrazek):
+def pinkify(path):
+    obrazek = Image.open(path)
     sirka, vyska = obrazek.size
 
     x = 0
@@ -12,9 +13,11 @@ def pinkify(obrazek):
             obrazek.putpixel((x,y), (int(r**1.5),int(g**0.5),int(b**1.5/10)))
             y += 1
         x += 1
-    display(obrazek)
+    # display(obrazek)
+    obrazek.show()
 
-def black_white(obrazek):
+def black_white(path):
+    obrazek = Image.open(path)
     sirka, vyska = obrazek.size
 
     x = 0
@@ -26,7 +29,8 @@ def black_white(obrazek):
             obrazek.putpixel((x,y), (prumer,prumer,prumer))
             y += 1
         x += 1
-    display(obrazek)
+    # display(obrazek)
+    obrazek.show()
 
 filters = {
     "pinkify": pinkify,
@@ -34,9 +38,9 @@ filters = {
 }
 
 
-print("Vítej.")
+print("\nVítej.")
 print("Jaký soubor chceš editovat?")
-image_file = input("-> ")
+image_file = input("./")
 chosen_function = ""
 while not chosen_function in filters.keys():
     chosen_function = input("Vyber filtr: ")
