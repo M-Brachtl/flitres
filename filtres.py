@@ -41,6 +41,8 @@ filters = {
 print("\nVítej.")
 print("Jaký soubor chceš editovat?")
 image_file = input("./")
+print("Dostupné filtry:",end=" ")
+print(*filters.keys(),sep=", ")
 chosen_function = ""
 while not chosen_function in filters.keys():
     chosen_function = input("Vyber filtr: ")
