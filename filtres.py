@@ -4,6 +4,8 @@ import os
 files = os.listdir()
 files.remove('venv')
 files.remove('filtres.py')
+files.remove('.git')
+files.remove('.gitignore')
 
 def pinkify(path):
     obrazek = Image.open(path)
